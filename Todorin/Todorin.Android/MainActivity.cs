@@ -19,7 +19,8 @@ namespace Todorin.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+			Plugin.InputKit.Platforms.Droid.Config.Init(this, savedInstanceState);
+			LoadApplication(new App());
         }
     }
 }
