@@ -4,17 +4,8 @@
              x:Class="Todorin.Views.ItemsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
 
-    <StackLayout>
+    <AbsoluteLayout>
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 VerticalOptions="FillAndExpand"
@@ -41,5 +32,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
+        <ImageButton Source="add2x.png" 
+                     BackgroundColor="Salmon"
+                     CornerRadius="100"
+                     Aspect="AspectFit"
+                     Padding="24"
+                     Scale=".8"
+                     AbsoluteLayout.LayoutFlags="PositionProportional"  
+                     AbsoluteLayout.LayoutBounds=".95,.95,80,80"
+                     Clicked="AddItem_Clicked" />
+    </AbsoluteLayout>
 </ContentPage>
