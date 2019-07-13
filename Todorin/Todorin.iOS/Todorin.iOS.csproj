@@ -141,4 +141,10 @@
       <Name>Todorin</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\save2x.png" />
+  </ItemGroup>
 </Project>
