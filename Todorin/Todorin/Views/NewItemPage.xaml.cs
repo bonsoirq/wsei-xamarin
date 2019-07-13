@@ -21,7 +21,7 @@ namespace Todorin.Views
 
             Item = new Item
             {
-                TintColor = Color.Black,
+                TintColor = System.Drawing.Color.Black.ToArgb().ToString(),
                 Text = "Item name",
                 Description = "This is an item description."
             };
@@ -43,8 +43,8 @@ namespace Todorin.Views
 		{
 			base.OnAppearing();
 
-			((NavigationPage)this.Parent).BarBackgroundColor = Item.TintColor;
-		}
+			((NavigationPage)this.Parent).BarBackgroundColor = System.Drawing.Color.FromArgb(Convert.ToInt32(Item.TintColor));
+        }
 
 		async void Save_Clicked(object sender, EventArgs e)
         {
@@ -60,8 +60,8 @@ namespace Todorin.Views
         void OnColorButton_Clicked(object sender, EventArgs e)
 		{
 			var button = sender as Button;
-			Item.TintColor = button.BackgroundColor;
-			((NavigationPage)this.Parent).BarBackgroundColor = Item.TintColor;
+			Item.TintColor = ((System.Drawing.Color)button.BackgroundColor).ToArgb().ToString();
+			((NavigationPage)this.Parent).BarBackgroundColor = button.BackgroundColor;
 		}
 
 	}
