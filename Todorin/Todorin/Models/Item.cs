@@ -12,13 +12,13 @@ namespace Todorin.Models
         public bool Checked { get; set; }
         public string Text { get; set; }
         public string Description { get; set; }
-		public Color TintColor { get; set; }
+		public string TintColor { get; set; }
 
         public Color CurrentColor
 		{
 			get
 			{
-				return Checked ? Color.Gray : TintColor;
+				return Checked ? Color.Gray : Color.FromArgb(Convert.ToInt32(TintColor));
 			}
 		}
 	}
