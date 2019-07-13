@@ -6,7 +6,7 @@ namespace Todorin.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Tasks,
         About
     }
     public class HomeMenuItem
