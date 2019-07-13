@@ -20,6 +20,14 @@
             <Entry Text="{Binding Item.Text}" FontSize="Small" />
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
+            <Label Text="Color" FontSize="Medium" />
+            <StackLayout Orientation="Horizontal" Spacing="20" Padding="15">
+                <Button BackgroundColor="Black" WidthRequest="50" Clicked="OnColorButton_Clicked"/>
+                <Button BackgroundColor="Red" WidthRequest="50" Clicked="OnColorButton_Clicked"/>
+                <Button BackgroundColor="Green" WidthRequest="50" Clicked="OnColorButton_Clicked"/>
+                <Button BackgroundColor="Orange" WidthRequest="50" Clicked="OnColorButton_Clicked"/>
+                <Button BackgroundColor="Blue" WidthRequest="50" Clicked="OnColorButton_Clicked"/>
+            </StackLayout>
             <AbsoluteLayout VerticalOptions="EndAndExpand">
                 <ImageButton Source="save2x.png" 
                          BackgroundColor="Salmon"

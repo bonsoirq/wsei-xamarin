@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -20,11 +21,12 @@ namespace Todorin.Views
 
             Item = new Item
             {
+                TintColor = Color.Black,
                 Text = "Item name",
                 Description = "This is an item description."
             };
-             
-            switch (Device.RuntimePlatform)
+
+			switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
                     CornerRadius = 40;
@@ -37,7 +39,14 @@ namespace Todorin.Views
             BindingContext = this;
         }
 
-        async void Save_Clicked(object sender, EventArgs e)
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			((NavigationPage)this.Parent).BarBackgroundColor = Item.TintColor;
+		}
+
+		async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
@@ -47,5 +56,13 @@ namespace Todorin.Views
         {
             await Navigation.PopModalAsync();
         }
-    }
+
+        void OnColorButton_Clicked(object sender, EventArgs e)
+		{
+			var button = sender as Button;
+			Item.TintColor = button.BackgroundColor;
+			((NavigationPage)this.Parent).BarBackgroundColor = Item.TintColor;
+		}
+
+	}
 }
