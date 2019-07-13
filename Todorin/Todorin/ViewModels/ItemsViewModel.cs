@@ -45,7 +45,7 @@ namespace Todorin.ViewModels
             if (IsBusy)
                 return;
 
-            IsBusy = true;
+            IsBusy = false;
 
             try
             {
