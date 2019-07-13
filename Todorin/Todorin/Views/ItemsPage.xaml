@@ -1,15 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Todorin.Converters"
              xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="Todorin.Views.ItemsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
-    
-    <ContentPage.Resources>
-        <local:CheckedToColorConverter x:Key="CheckedToColorConverter" />
-    </ContentPage.Resources>
 
     <AbsoluteLayout>
         <ListView x:Name="ItemsListView"
@@ -31,12 +26,12 @@
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16"
-                                    TextColor="{Binding Checked, Converter={StaticResource CheckedToColorConverter}}" />
+                                    TextColor="{Binding CurrentColor}" />
                                 <Label Text="{Binding Description}" 
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13"
-                                    TextColor="{Binding Checked, Converter={StaticResource CheckedToColorConverter}}" />
+                                    TextColor="{Binding CurrentColor}" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
