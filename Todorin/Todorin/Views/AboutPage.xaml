@@ -62,7 +62,6 @@
                                 <Span Text="Created by J. Bąk and M. Galas" />
                                 <Span Text=" " />
                                 <Span Text="MIT License" FontAttributes="Bold" />
-                                <Span Text=" " />
                                 <Span Text="." />
                             </FormattedString.Spans>
                         </FormattedString>

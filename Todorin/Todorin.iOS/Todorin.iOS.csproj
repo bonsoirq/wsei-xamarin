@@ -124,6 +124,7 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\todorin_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -137,7 +138,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Todorin\Todorin.csproj">
-      <Project>{9F1D09B3-5CB9-4233-8A8F-38DAD39F91BF}</Project>
+      <Project>{949D1F4E-1D1A-41A8-AA37-BA1FCC9E2FCE}</Project>
       <Name>Todorin</Name>
     </ProjectReference>
   </ItemGroup>
