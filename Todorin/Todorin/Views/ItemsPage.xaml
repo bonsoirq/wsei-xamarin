@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Todorin.Converters"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="Todorin.Views.ItemsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
+    
+    <ContentPage.Resources>
+        <local:CheckedToColorConverter x:Key="CheckedToColorConverter" />
+    </ContentPage.Resources>
 
     <AbsoluteLayout>
         <ListView x:Name="ItemsListView"
@@ -18,15 +24,20 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Text}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Description}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <input:CheckBox Key="{Binding Id}" Type="Check" IsChecked="{Binding Checked}" CheckChanged="CheckBox_Checked" />
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Text}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16"
+                                    TextColor="{Binding Checked, Converter={StaticResource CheckedToColorConverter}}" />
+                                <Label Text="{Binding Description}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13"
+                                    TextColor="{Binding Checked, Converter={StaticResource CheckedToColorConverter}}" />
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -34,12 +45,13 @@
         </ListView>
         <ImageButton Source="add2x.png" 
                      BackgroundColor="Salmon"
-                     CornerRadius="100"
+                     CornerRadius="{Binding CornerRadius}"
                      Aspect="AspectFit"
                      Padding="24"
                      Scale=".8"
                      AbsoluteLayout.LayoutFlags="PositionProportional"  
                      AbsoluteLayout.LayoutBounds=".95,.95,80,80"
-                     Clicked="AddItem_Clicked" />
+                     Clicked="AddItem_Clicked">
+        </ImageButton>
     </AbsoluteLayout>
 </ContentPage>

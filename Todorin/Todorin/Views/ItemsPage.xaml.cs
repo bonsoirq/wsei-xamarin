@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 using Todorin.Models;
 using Todorin.Views;
 using Todorin.ViewModels;
+using System.Diagnostics;
+using Plugin.InputKit.Shared.Controls;
 
 namespace Todorin.Views
 {
@@ -40,6 +42,12 @@ namespace Todorin.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+        }
+
+        void CheckBox_Checked(object sender, EventArgs e)
+        {
+            viewModel.SortItems();
+            ItemsListView.ItemsSource = viewModel.Items;
         }
 
         protected override void OnAppearing()

@@ -12,6 +12,7 @@ namespace Todorin.Views
     public partial class NewItemPage : ContentPage
     {
         public Item Item { get; set; }
+        public int CornerRadius { get; set; }
 
         public NewItemPage()
         {
@@ -22,6 +23,16 @@ namespace Todorin.Views
                 Text = "Item name",
                 Description = "This is an item description."
             };
+             
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    CornerRadius = 40;
+                    break;
+                default:
+                    CornerRadius = 100;
+                    break;
+            }
 
             BindingContext = this;
         }

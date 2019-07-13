@@ -23,7 +23,7 @@
             <AbsoluteLayout VerticalOptions="EndAndExpand">
                 <ImageButton Source="save2x.png" 
                          BackgroundColor="Salmon"
-                         CornerRadius="100"
+                         CornerRadius="{Binding CornerRadius}"
                          Aspect="AspectFit"
                          Padding="24"
                          Scale=".8"
