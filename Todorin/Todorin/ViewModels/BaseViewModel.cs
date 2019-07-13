@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 using Todorin.Models;
 using Todorin.Services;
+using Todorin.Data;
 
 namespace Todorin.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new ItemDatabase();
 
         bool isBusy = false;
         public bool IsBusy
